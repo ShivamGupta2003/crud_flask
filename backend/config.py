@@ -27,14 +27,14 @@ CORS(app, resources={r"/*": {"origins": "https://crud-flask-xwmq.onrender.com"}}
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///mydatabase.db"  # Or any remote DB
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-# Secret key for session handling or other needs
-app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "your_default_secret_key")
+
+
 
 # Set your database
 db = SQLAlchemy(app)
 
 if __name__ == "__main__":
     # Run Flask with the appropriate host and port for Render deployment
-    app.run(host='0.0.0.0', port=int(os.getenv("PORT", 5000)), debug=True)
+    app.run(host='0.0.0.0', port=int(os.getenv("PORT", 3000)), debug=True)
 
 
