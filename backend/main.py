@@ -3,13 +3,13 @@ from config import app, db
 from models import Contact
 import os
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def serve(path):
-    if path and os.path.exists(os.path.join(app.static_folder, path)):
-        return send_from_directory(app.static_folder, path)
-    else:
-        return send_from_directory(app.static_folder, 'index.html')
+# @app.route('/', defaults={'path': ''})
+# @app.route('/<path:path>')
+# def serve(path):
+#     if path and os.path.exists(os.path.join(app.static_folder, path)):
+#         return send_from_directory(app.static_folder, path)
+#     else:
+#         return send_from_directory(app.static_folder, 'index.html')
 
 @app.route("/contacts", methods=["GET"])
 def get_contacts():
@@ -84,6 +84,6 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
 
-    port = int(os.environ.get('PORT', 5000)) 
+    port = int(os.environ.get('PORT',10000)) 
 
     app.run(host='0.0.0.0', port=port)
